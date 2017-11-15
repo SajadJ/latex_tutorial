@@ -1,0 +1,109 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\title{GEOPUG: Week 3\\Lists and Tables}
+%\author{Jacob Richardson}
+\usepackage{url}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{Lists}
+
+The two types of lists we commonly use are bulleted and numbered lists.
+
+\subsection{Bulleted List}
+
+\begin{itemize} %Enter the bulleted list environment
+\item %add a new marker
+All lists use the \textbackslash item command to create a new marker. For Instance, \textbackslash item is used after this sentence to create a new bullet point.
+
+\item Bulleted lists are created with the \textit{itemize} environment. I think of a grocery list as an itemized list. It has items but each item in my spaghetti recipe is as important as all the others.
+
+\item Again, \textbackslash item creates a new marker in all lists. If I were to try to start a new paragraph by leaving a blank line in my write up\dots
+
+I will see that lists in \LaTeX can easily handle multiple paragraphs per marker!
+\end{itemize}
+
+\subsection{Numbered List}
+
+\begin{enumerate} %Begin the Numbered list environment
+	\item Numbered lists are created within the \textit{enumerate} environment. 
+	\item Each new marker will, by default be the next arabic numeral.
+	\item We can also nest lists! All that is needed is to begin a new list environment of our choosing within the current list environment.
+	
+	\begin{enumerate} %Begin a Nested numbered list
+		\item As you can see, nested enumerated lists use lower case letters by default.
+		\item Nested itemized lists change to hyphens instead of bullets.
+		\item An enumerated list nested inside an itemized list will use numbers. It is definitely something to play around with
+	\end{enumerate}
+	
+	%white space can be left here and elsewhere in lists, which is different than the relatively picky equation environment.
+\end{enumerate}
+
+\section{Special Characters}
+Special Characters are written out in a logical way, perhaps like lego bricks. Special character sets in MS Word-like documents have created specific characters before--hand, which don't always have what you want. \LaTeX gets around this by creating all special characters on-the-fly when you design them.
+
+T\={o}hoku
+
+Volc\'an Po\'as
+
+``Hello World!'': You cannot paste pre-formatted quotation marks from MS Word like documents. 
+
+,,Wilkommen zum \LaTeX, Fraulein Gr\"oning''
+
+```Hello World,' Aur\'elie said''
+
+\textit{This is all italic font.}
+
+\textbf{This is all bold, \textit{and this is bold and italic font}}
+
+hy-phen: e.g. 1-2.5
+
+en--dash: e.g. I work half--time.
+
+em---dash: e.g. She always thought---against all logic, but nevertheless---that she should learn \LaTeX.
+
+Backslashes, underscores, dollar signs, ampersands, and percent signs are all special characters in \LaTeX. To create a backslash, we have to type \textbackslash textbackslash: \textbackslash. To use the rest, we have to use an additional backslash in front of them: the online folder puppy\_pictures costs \$3.00 to access \& 50\% of your time, when you should be working.
+
+Urls can be created if we call the \textit{url} package in the preamble. \url{http://nvoss.myweb.usf.edu/puppy_pictures} %requires package "url"
+
+\newpage %creates a new page
+\thispagestyle{empty} %removes the page number on the current page only
+
+\section{Tables}
+Notice this starts on a new page and the page doesn't have a number. Done by using \textit{\textbackslash newpage} and \textit{\textbackslash thispagestyle\{empty\}}.
+
+\subsection{The Tabular environment}
+A simple group of cells:
+
+\begin{tabular}{|c||c||||||||||||||||} %c, l, r denote colums, | denotes borders. You can double border... or put as many as you'd like.
+\hline  1 & 2 \\ %\hline makes a horizontal line.
+\hline 4 & 3 \\ %the & is the "next column" symbol.
+5 & 6\\ %the \\ is the "next row" symbol
+ & 8 \\ % If you want a blank cell, you still need the correct number of ampersands
+\hline
+\end{tabular}
+As you can see, the markup is somewhat visual. But it is just an inline group of cells, not a real table!
+
+\subsection{The Table environment}
+
+Nesting a tabular environment in a table environment gives us what we want.
+
+\begin{table}[h] %Begins a table. the "h" option means "try to place this Here, where I've typed it." "t" and "b" mean, place this at the top or the bottom of a page. This works for figures too.
+	\centering %center the whole table
+	\caption{Things I saw at the Grocery Store.} %table title
+	\begin{tabular}{l c c} %3 columns, left-aligned, centered, and centered. No vertical seperators.
+		\hline item & weight & cost\\
+		\hline bananas & 1~lb & \$0.69\\
+		lenovo computers & 3~lbs & \$400\\
+		nachos & 0.5~lbs & \$700\\
+		\hline
+	\end{tabular}
+	\label{tab:grocery} %remember to give the label a unique name!
+\end{table}
+
+Table \ref{tab:grocery} is an advanced table over the previous one (D. Voytenko, pers. comm.) Notice the items are left--aligned, while the other columns are centered.
+
+\end{document}

@@ -1,0 +1,35 @@
+\documentclass[12pt]{article} %the whole document will be in 12 pt
+\date{} %this will remove the date from your document (it’s included by default)  
+\usepackage{amsmath} %allows you to do some fancy math stuff that you wouldn’t have been able to do otherwise (we’ll come back to this)
+\title{This is Your Title} %use “\title{\LaTeX ________}” to get the fancypants Latex typeset as your title
+\author{Your Name}
+ 
+\begin{document}
+\maketitle
+\section{This is a section}
+%if you add an asterick (as in \section*{This is a section}, this section will not be numbered.
+Now we can type away!
+
+\subsection{Less than a section}
+Hello World!
+One next line does not make a new paragraph…
+
+But two next lines do make a new paragraph!
+
+\subsubsection{Hoagie on a Train section!}
+Notice that the first paragraph is not indented, but we are!  The first paragraph is not intended by default, but the following new paragraphs will be.
+
+\begin{center}
+Centered paragraph  (equations are centered by default)
+\end{center}
+We are still in the same paragraph, but \textit{\textbf{not}} centered.
+
+\paragraph{Ad Nauseum}
+See what we did here?  Cool, huh?  Check out this equation inline : $x=y^{11}>\delta4\rho+\Delta x^5_\beta$  
+
+Or an equation on its own line
+\begin{equation}
+\pi=\frac{22}{7}^{\circ}
+%notice it’s automatically numbered (we’ll come back to this)
+\end{equation}	
+\end{document}

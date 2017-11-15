@@ -1,0 +1,80 @@
+\documentclass[12pt]{article} %the whole document will be in 12 pt
+\date{} %this will remove the date from your document (it’s included by default)  
+\usepackage{amsmath} %allows you to do some fancy math stuff that you wouldn’t have been able to do otherwise
+\usepackage{graphicx}  %you will need this package to work with figures
+\title{GEOPUG: Week 2\\Equations and the start of figures} % Notice how \\ put your title on two lines
+\author{GEOPUGGER}
+ 
+\begin{document}
+\maketitle
+\section{More Equation stuff}
+Remember inline equations use a dollar sign to tell Latex its equation time.  Like this $x=y$
+
+%\begin{equation}
+%Q=-KA\frac{dh}{dl}
+%\end{equation}
+
+And to place the equation (for example, a spherical harmonics function) centered on a line of its own, you do this:
+
+\begin{equation}
+V(\phi,\lambda)=\sum_{n=0}^{\infty}\sum_{m=0}^ncY(\phi,\lambda)\sin x
+\label{eq:SHE} %now our equation has the name eq:SHE.  Labels work like variables in a code.  If you label a later equation with the same name, the name is reassigned to that later equation only.  This equation becomes a sad, sad nameless thing.
+\end{equation}
+
+Since we labeled the equation we can refer to it in any subsequent text.  For example...
+
+\begin{center}
+Hey, remember Equation \ref{eq:SHE}?  What a doozy!
+\end{center}
+
+As super scientists, we refer to Equation \ref{eq:SHE} very often, but what if the order of our equations changes?  The number following the word equation is automatically updated if you ask Latex (nicely!).  So you can insert three other equations before eq:SHE and the above sentence will read 'Equation 4' without you having to even think about it.  Got it?  Try it by uncommenting the equation above it and see what happens.
+
+\paragraph{A note about trig functions}
+Latex will automatically italicize sin, cos, tan, etc unless you enter it as a command.  Notice the difference between $sinx$ and $\sin x$.  If and when you use the latter, be sure to put a space between before x.  Otherwise, Latex will read it as a command that doesn't exist.  Try it and see.
+
+\subsection*{Aligning}
+The align command is useful for vertically aligning equations according to your needs.
+
+\begin{align*}
+X&=2y+5y+7y+11y\nonumber\\  %\nonumber works like an asterisk- omits the number scheming
+X&=25y\\  %Don't forget the power of \\.  See what happens if you take those two backslashes out.
+&=25y\\  %the & lets you tell Latex which character you want to see lined up from line to line
+\end{align*}
+
+as opposed to this mess\\
+
+\begin{align*}
+X&=25y\\
+=25y\\
+\end{align*}
+
+
+As super scientists, we refer to Equation \ref{eq:SHE} very often.  Now if I changed the order of equation 1 and two, eq:SHE will always be the correct number automatically.
+If using Bibtex and you cite a paper within your text, Latex will give you an error if that reference isn’t in the bibliography.  If you remove the paragraph with the citation, Bibtex will remove the reference for you.
+
+\paragraph{Referencing}
+If you are using BibTex and you cite a paper within the text, Latex will give you an error if the reference is not in the biblioraphy.  Furthermore, if you remove the sentence or paragraph with the citation, BibTex will remove the reference from the bibliography for you.
+
+
+\section{Fun with Figures!}
+Figures and tables have an extra tag that you can not forget.  Everything pertaining to your figure must be within both begin{figure} and end{figure}.  Since the graphicx package is already called upon (in the preambles) we are ready to go!
+
+Graphicx allows for the addition of pdf, eps, pgn or jpg into your document.
+
+\begin{figure}
+\centering  %this is where your alignment is specified
+\label{fig:scarybird}
+\setlength\fboxsep{1pt} %the space between the figure and a border
+\setlength\fboxrule{3pt} %the border's thickness
+\fbox{\includegraphics[width=250pt]{scarybird.jpeg}}  %This images will need to be in the same directory as your .tex.  Otherwise, you need to enter the path to the file.
+%\includegraphics[width=\textwidth]{scarybird.jpeg}  will make your figure the width of your text.
+\caption{One of my personal favorites.}  %If this command is above \includegraphics, then the caption is above the figure.
+\end{figure}
+
+See how there were lots of instructions before the image was even added to the document.  As long as it's all within the figure tags, it's good!  Experiment with the border and width of the figure.
+
+\begin{center}
+More on figures next time!
+\end{center}
+
+\end{document}

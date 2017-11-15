@@ -1,0 +1,52 @@
+\documentclass[12pt]{article} %the whole document will be in 12 pt
+\date{} %this will remove the date from your document (it’s included by default)  
+
+\usepackage{natbib} %YOU NEED THIS PACKAGE TO DO ANY BIB STUFF
+
+\title{GEOPUG:Week 4\\ \LaTeX and bibliographies}
+\author{GEOPUGGER}
+ 
+\begin{document}
+\maketitle
+\section*{BibTeX}
+BibTeX is the LaTeX tool for processing lists of references.  You will notice the sample.bib file in the Week 4 folder.  Hopefully you were able to create a file like this on your own.  Note it's not in any format that you would find in an article, book or thesis.  Instead this is the file you will refer to when asking LaTeX to insert a citation or create a bibliography in your document.
+
+You can manage and view your .bib files in Notepad, Notepad++, gedit or wherever you manage and view .tex files.  You may also download JabRef, an open-source interface that manages BibTeX files quite well.  Try it out.
+
+Notice that each entry in .bib starts with the category of media that that source falls under.  So when you call on that reference, LaTeX knows what the formatting should be.  Here are a list of examples.
+
+\begin{itemize} %Enter the bulleted list environment
+\item @article for a journal article
+\item @book for a book
+\item @incollection for a paper or report in a larger collection of related papers or reports
+\item @misc for a map, strat column, etc.
+\item inproceedings for a conference abstract
+\item @thesis for a thesis/dissertation
+\end{itemize}
+
+Just like figures, *.bib files need to be in the same directory as your .tex files.  Also, you much add a line at the end of your tex file (but before 'enddocument') that specifies which .bib to look for.  In our case the filename is sample.bib.  See the second last line of this document.  BibTeX writes to the .aux file and LaTeX looks to the .aux for directions.  So be sure to keep .aux with .tex and .bib.  Furthermore, your work goes much smoother if you use the 'Build and View' icon to run rather than 'Compile'
+
+\subsection*{Some examples}
+See how each entry in sample.bib has a key listing?  (Hint: the first entry's key listing is Roberts2011.) You can use this identifier instead of having to type out every citation you need.  For example, unicorns are real \citep{Roberts2011}.\\
+
+\begin{itemize}
+\item There are different ways to insert a citation \cite{Roberts2011}.  'cite' should, by default, give a number index instead of writing out the author and year.\\
+\item There are different ways to insert a citation \citet{Roberts2011}. 'citet' writes out the author and year\\
+\item There are different ways to insert a citation \citep{Roberts2011}. 'citep' writes out the author and year AND puts it in parentheses.\\
+\end{itemize}
+
+Remember, these citations won't show up until you specify which .bib you want LaTeX looking at.
+
+Here are two examples where you'd like your citation to say a little something extra.
+
+Lots of folks study unicorns \citep[etc]{Rowland2000}, but how many of them truly understand the significance of the unicorn horn's texture \citep[Figure 2]{Scott1986}.  Most recent findings have shown a unicorn's horn is utterly unique much like a zebra's stripes or human's fingerprint \citep{Roberts2011, Rowland2000, Scott1986}. %Note that multiple citations are separated by a semicolon in your pdf.
+
+As you cite your sources, they are added to the bibliography at the end of your document, like magic, in alphabetical order too!  If you want a reference included in the bibliography, but you didn't explicitly cite it in your text, do this:
+
+\nocite{Sakimoto2003}
+
+
+\bibliographystyle{apalike}
+\bibliography{sample}	%The filename you enter must be a .bib file even though you don't enter .bib in the {}.  You can add in an argument in [] to select the format style you need.  
+
+\end{document}
